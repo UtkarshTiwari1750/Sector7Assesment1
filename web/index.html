@@ -1,21 +1,669 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>TriX Game</title>
-<script>
-async function buyGT() {
-  const usdtAmount = document.getElementById("usdtAmount").value;
-  const res = await fetch(`/purchase?amount=${usdtAmount}`);
-  console.log(await res.json());
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TriX Game - Gaming Platform</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        h2 {
+            color: #ffd700;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        input, button, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        input {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            font-family: monospace;
+            word-break: break-all;
+        }
+        
+        .wallet-info {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .event-log {
+            max-height: 300px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .event-item {
+            margin-bottom: 10px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            border-left: 3px solid #ffd700;
+        }
+        
+        .connected {
+            color: #00ff00;
+        }
+        
+        .disconnected {
+            color: #ff6b6b;
+        }
+
+        .match-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .leaderboard-table th,
+        .leaderboard-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .leaderboard-table th {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .refresh-btn {
+            width: auto;
+            padding: 8px 16px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-<h1>TriX Game</h1>
-<div>
-  <h2>Buy GT</h2>
-  <input id="usdtAmount" placeholder="USDT amount" />
-  <button onclick="buyGT()">Buy</button>
-</div>
+    <h1>🎮 TriX Game Platform</h1>
+    
+    <div class="container">
+        <!-- Wallet Connection -->
+        <div class="card full-width">
+            <h2>🔗 Wallet Connection</h2>
+            <div id="walletInfo" class="wallet-info">
+                <div>Status: <span id="walletStatus" class="disconnected">Disconnected</span></div>
+                <div>Address: <span id="walletAddress">-</span></div>
+                <div>GT Balance: <span id="gtBalance">-</span></div>
+            </div>
+            <button id="connectBtn" onclick="connectWallet()">Connect MetaMask</button>
+        </div>
+
+        <!-- USDT Faucet & Buy GT Tokens -->
+        <div class="card">
+            <h2>💰 USDT & Game Tokens</h2>
+            <div style="margin-bottom: 15px;">
+                <strong>USDT Balance: <span id="usdtBalance">-</span></strong>
+            </div>
+            <button onclick="getUSDTFromFaucet()" id="faucetBtn" disabled>Get 1000 USDT (Faucet)</button>
+            <hr style="margin: 15px 0; border: 1px solid rgba(255,255,255,0.2);">
+            <input type="number" id="usdtAmount" placeholder="USDT Amount (e.g., 10)" step="0.000001" min="0">
+            <button onclick="buyGT()" id="buyBtn" disabled>Buy GT Tokens</button>
+            <div class="status" id="buyStatus">Connect wallet to buy tokens</div>
+        </div>
+
+        <!-- Create/Stake Match -->
+        <div class="card">
+            <h2>⚔️ Game Matches</h2>
+            <div class="match-grid">
+                <input type="text" id="matchId" placeholder="Match ID (e.g., game123)">
+                <input type="number" id="stakeAmount" placeholder="Stake (GT)" step="0.000000000000000001" min="0">
+                <input type="text" id="player1" placeholder="Player 1 Address">
+                <input type="text" id="player2" placeholder="Player 2 Address">
+            </div>
+            <button onclick="createMatch()" id="createMatchBtn" disabled>Create Match</button>
+            <button onclick="stakeMatch()" id="stakeBtn" disabled>Stake in Match</button>
+            <div class="status" id="matchStatus">Connect wallet to interact with matches</div>
+        </div>
+
+        <!-- Submit Result -->
+        <div class="card">
+            <h2>🏆 Submit Result</h2>
+            <input type="text" id="resultMatchId" placeholder="Match ID">
+            <input type="text" id="winnerAddress" placeholder="Winner Address">
+            <button onclick="submitResult()" id="resultBtn" disabled>Submit Result</button>
+            <div class="status" id="resultStatus">Connect wallet to submit results</div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div class="card">
+            <h2>🏅 Leaderboard 
+                <button class="refresh-btn" onclick="refreshLeaderboard()">Refresh</button>
+            </h2>
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Address</th>
+                        <th>Wins</th>
+                        <th>GT Won</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody">
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: #ccc;">Loading leaderboard...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Event Log -->
+        <div class="card full-width">
+            <h2>📜 Recent Events</h2>
+            <div id="eventLog" class="event-log">
+                <div class="event-item">Waiting for events...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.esm.min.js"></script> -->
+    <script type="module">
+        import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.esm.min.js";
+        // Contract addresses and ABIs (would be loaded from config in production)
+        const API_BASE = 'http://localhost:3000';
+        const LEADERBOARD_API = 'http://localhost:3001';
+        
+        // Game state
+        let provider = null;
+        let signer = null;
+        let userAddress = null;
+        let gameTokenContract = null;
+        let tokenStoreContract = null;
+        let playGameContract = null;
+
+        // Contract ABIs (simplified for frontend use)
+        const GAME_TOKEN_ABI = [
+            "function balanceOf(address owner) view returns (uint256)",
+            "function approve(address spender, uint256 amount) returns (bool)",
+            "function allowance(address owner, address spender) view returns (uint256)"
+        ];
+
+        // Initialize the app
+        async function init() {
+            if (typeof window.ethereum !== 'undefined') {
+                document.getElementById('connectBtn').disabled = false;
+                
+                // Check if already connected
+                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                if (accounts.length > 0) {
+                    await connectWallet();
+                }
+            } else {
+                document.getElementById('walletStatus').textContent = 'MetaMask not installed';
+                document.getElementById('connectBtn').textContent = 'Install MetaMask';
+            }
+
+            // Load leaderboard on startup
+            refreshLeaderboard();
+        }
+
+        // Connect to MetaMask wallet
+        window.connectWallet = async function() {
+            try {
+                if (typeof window.ethereum === 'undefined') {
+                    alert('Please install MetaMask!');
+                    return;
+                }
+
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                signer = provider.getSigner();
+                userAddress = await signer.getAddress();
+
+                document.getElementById('walletStatus').textContent = 'Connected';
+                document.getElementById('walletStatus').className = 'connected';
+                document.getElementById('walletAddress').textContent = `${userAddress.slice(0, 6)}...${userAddress.slice(-4)}`;
+                document.getElementById('connectBtn').textContent = 'Connected';
+                document.getElementById('connectBtn').disabled = true;
+
+                // Enable buttons
+                document.getElementById('faucetBtn').disabled = false;
+                document.getElementById('buyBtn').disabled = false;
+                document.getElementById('createMatchBtn').disabled = false;
+                document.getElementById('stakeBtn').disabled = false;
+                document.getElementById('resultBtn').disabled = false;
+
+                // Update status messages
+                document.getElementById('buyStatus').textContent = 'Get USDT from faucet first, then buy GT tokens';
+                document.getElementById('matchStatus').textContent = 'Create a new match or stake in existing one';
+                document.getElementById('resultStatus').textContent = 'Submit match results';
+
+                // Load balances
+                await updateGTBalance();
+                await updateUSDTBalance();
+
+                // Listen for account changes
+                window.ethereum.on('accountsChanged', async (accounts) => {
+                    if (accounts.length === 0) {
+                        disconnectWallet();
+                    } else {
+                        await connectWallet();
+                    }
+                });
+
+                addEventLog('✅ Wallet connected successfully');
+
+            } catch (error) {
+                console.error('Connection failed:', error);
+                document.getElementById('buyStatus').textContent = `Connection failed: ${error.message}`;
+                addEventLog(`❌ Connection failed: ${error.message}`);
+            }
+        }
+
+        // Disconnect wallet
+        function disconnectWallet() {
+            provider = null;
+            signer = null;
+            userAddress = null;
+            
+            document.getElementById('walletStatus').textContent = 'Disconnected';
+            document.getElementById('walletStatus').className = 'disconnected';
+            document.getElementById('walletAddress').textContent = '-';
+            document.getElementById('gtBalance').textContent = '-';
+            document.getElementById('usdtBalance').textContent = '-';
+            document.getElementById('connectBtn').textContent = 'Connect MetaMask';
+            document.getElementById('connectBtn').disabled = false;
+
+            // Disable buttons
+            document.getElementById('faucetBtn').disabled = true;
+            document.getElementById('buyBtn').disabled = true;
+            document.getElementById('createMatchBtn').disabled = true;
+            document.getElementById('stakeBtn').disabled = true;
+            document.getElementById('resultBtn').disabled = true;
+
+            addEventLog('🔌 Wallet disconnected');
+        }
+
+        // Update GT balance
+        async function updateGTBalance() {
+            try {
+                if (!provider) return;
+                
+                const response = await fetch(`${API_BASE}/balance/${userAddress}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('gtBalance').textContent = `${data.balance} GT`;
+                } else {
+                    document.getElementById('gtBalance').textContent = 'Error loading balance';
+                }
+            } catch (error) {
+                console.error('GT balance update failed:', error);
+                document.getElementById('gtBalance').textContent = 'Error';
+            }
+        }
+
+        // Update USDT balance
+        async function updateUSDTBalance() {
+            try {
+                if (!provider) return;
+                
+                const response = await fetch(`${API_BASE}/usdt-balance/${userAddress}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('usdtBalance').textContent = `${data.balance} USDT`;
+                } else {
+                    document.getElementById('usdtBalance').textContent = 'Error loading USDT balance';
+                }
+            } catch (error) {
+                console.error('USDT balance update failed:', error);
+                document.getElementById('usdtBalance').textContent = 'Error';
+            }
+        }
+
+        // Get USDT from faucet
+        window.getUSDTFromFaucet = async function() {
+            try {
+                document.getElementById('faucetBtn').disabled = true;
+                document.getElementById('buyStatus').textContent = '🔄 Getting USDT from faucet...';
+
+                const response = await fetch(`${API_BASE}/faucet/usdt`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        address: userAddress,
+                        amount: "1000"
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('buyStatus').textContent = `✅ Received ${data.amount} USDT! TX: ${data.txHash}`;
+                    addEventLog(`💰 Received ${data.amount} USDT from faucet. TX: ${data.txHash}`);
+                    
+                    // Update USDT balance after a short delay
+                    setTimeout(updateUSDTBalance, 3000);
+                } else {
+                    document.getElementById('buyStatus').textContent = `❌ Faucet failed: ${data.error}`;
+                    addEventLog(`❌ Faucet failed: ${data.error}`);
+                }
+
+            } catch (error) {
+                console.error('Faucet failed:', error);
+                document.getElementById('buyStatus').textContent = `❌ Faucet failed: ${error.message}`;
+                addEventLog(`❌ Faucet failed: ${error.message}`);
+            } finally {
+                document.getElementById('faucetBtn').disabled = false;
+            }
+        }
+
+        // Buy GT tokens
+        window.buyGT = async function() {
+            const usdtAmount = document.getElementById('usdtAmount').value;
+            if (!usdtAmount || parseFloat(usdtAmount) <= 0) {
+                document.getElementById('buyStatus').textContent = 'Please enter a valid USDT amount';
+                return;
+            }
+
+            try {
+                document.getElementById('buyBtn').disabled = true;
+                document.getElementById('buyStatus').textContent = '🔄 Processing purchase...';
+
+                const response = await fetch(`${API_BASE}/purchase?amount=${usdtAmount}`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('buyStatus').textContent = `✅ Purchase successful! TX: ${data.txHash}`;
+                    addEventLog(`💰 Purchased ${usdtAmount} USDT worth of GT tokens. TX: ${data.txHash}`);
+                    
+                    // Update balances after a short delay
+                    setTimeout(() => {
+                        updateGTBalance();
+                        updateUSDTBalance();
+                    }, 3000);
+                    
+                    // Clear input
+                    document.getElementById('usdtAmount').value = '';
+                } else {
+                    document.getElementById('buyStatus').textContent = `❌ Purchase failed: ${data.error}`;
+                    addEventLog(`❌ Purchase failed: ${data.error}`);
+                }
+
+            } catch (error) {
+                console.error('Purchase failed:', error);
+                document.getElementById('buyStatus').textContent = `❌ Purchase failed: ${error.message}`;
+                addEventLog(`❌ Purchase failed: ${error.message}`);
+            } finally {
+                document.getElementById('buyBtn').disabled = false;
+            }
+        }
+
+        // Create match
+        window.createMatch = async function() {
+            const matchId = document.getElementById('matchId').value;
+            const stakeAmount = document.getElementById('stakeAmount').value;
+            const player1 = document.getElementById('player1').value;
+            const player2 = document.getElementById('player2').value;
+
+            if (!matchId || !stakeAmount || !player1 || !player2) {
+                document.getElementById('matchStatus').textContent = 'Please fill all fields';
+                return;
+            }
+
+            try {
+                document.getElementById('createMatchBtn').disabled = true;
+                document.getElementById('matchStatus').textContent = '🔄 Creating match...';
+
+                const response = await fetch(`${API_BASE}/match/start`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        matchId: ethers.utils.formatBytes32String(matchId),
+                        p1: player1,
+                        p2: player2,
+                        stake: ethers.utils.parseEther(stakeAmount)
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('matchStatus').textContent = `✅ Match created! TX: ${data.txHash}`;
+                    addEventLog(`⚔️ Match "${matchId}" created with ${stakeAmount} GT stake. TX: ${data.txHash}`);
+                } else {
+                    document.getElementById('matchStatus').textContent = `❌ Match creation failed: ${data.error}`;
+                    addEventLog(`❌ Match creation failed: ${data.error}`);
+                }
+
+            } catch (error) {
+                console.error('Match creation failed:', error);
+                document.getElementById('matchStatus').textContent = `❌ Match creation failed: ${error.message}`;
+                addEventLog(`❌ Match creation failed: ${error.message}`);
+            } finally {
+                document.getElementById('createMatchBtn').disabled = false;
+            }
+        }
+
+        // Stake in match
+        window.stakeMatch = async function() {
+            const matchId = document.getElementById('matchId').value;
+
+            if (!matchId) {
+                document.getElementById('matchStatus').textContent = 'Please enter match ID';
+                return;
+            }
+
+            try {
+                document.getElementById('stakeBtn').disabled = true;
+                document.getElementById('matchStatus').textContent = '🔄 Staking in match...';
+
+                const response = await fetch(`${API_BASE}/match/stake`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        matchId: ethers.utils.formatBytes32String(matchId),
+                        player: userAddress
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('matchStatus').textContent = `✅ Staked successfully! TX: ${data.txHash}`;
+                    addEventLog(`🎯 Staked in match "${matchId}". TX: ${data.txHash}`);
+                    
+                    // Update balance
+                    setTimeout(updateGTBalance, 3000);
+                } else {
+                    document.getElementById('matchStatus').textContent = `❌ Staking failed: ${data.error}`;
+                    addEventLog(`❌ Staking failed: ${data.error}`);
+                }
+
+            } catch (error) {
+                console.error('Staking failed:', error);
+                document.getElementById('matchStatus').textContent = `❌ Staking failed: ${error.message}`;
+                addEventLog(`❌ Staking failed: ${error.message}`);
+            } finally {
+                document.getElementById('stakeBtn').disabled = false;
+            }
+        }
+
+        // Submit match result
+        window.submitResult = async function() {
+            const matchId = document.getElementById('resultMatchId').value;
+            const winner = document.getElementById('winnerAddress').value;
+
+            if (!matchId || !winner) {
+                document.getElementById('resultStatus').textContent = 'Please fill both fields';
+                return;
+            }
+
+            try {
+                document.getElementById('resultBtn').disabled = true;
+                document.getElementById('resultStatus').textContent = '🔄 Submitting result...';
+
+                const response = await fetch(`${API_BASE}/match/result`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        matchId: ethers.utils.formatBytes32String(matchId),
+                        winner: winner
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('resultStatus').textContent = `✅ Result submitted! TX: ${data.txHash}`;
+                    addEventLog(`🏆 Match "${matchId}" result submitted. Winner: ${winner}. TX: ${data.txHash}`);
+                    
+                    // Clear inputs
+                    document.getElementById('resultMatchId').value = '';
+                    document.getElementById('winnerAddress').value = '';
+                    
+                    // Refresh leaderboard
+                    setTimeout(refreshLeaderboard, 3000);
+                } else {
+                    document.getElementById('resultStatus').textContent = `❌ Result submission failed: ${data.error}`;
+                    addEventLog(`❌ Result submission failed: ${data.error}`);
+                }
+
+            } catch (error) {
+                console.error('Result submission failed:', error);
+                document.getElementById('resultStatus').textContent = `❌ Result submission failed: ${error.message}`;
+                addEventLog(`❌ Result submission failed: ${error.message}`);
+            } finally {
+                document.getElementById('resultBtn').disabled = false;
+            }
+        }
+
+        // Refresh leaderboard
+        window.refreshLeaderboard = async function() {
+            try {
+                const response = await fetch(`${LEADERBOARD_API}/leaderboard`);
+                const leaderboard = await response.json();
+
+                const tbody = document.getElementById('leaderboardBody');
+                tbody.innerHTML = '';
+
+                if (leaderboard.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #ccc;">No games played yet</td></tr>';
+                    return;
+                }
+
+                leaderboard.forEach((player, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${player.address.slice(0, 6)}...${player.address.slice(-4)}</td>
+                        <td>${player.wins}</td>
+                        <td>${ethers.utils.formatEther(player.gtWon || '0')} GT</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+                addEventLog(`📊 Leaderboard refreshed - ${leaderboard.length} players`);
+
+            } catch (error) {
+                console.error('Failed to load leaderboard:', error);
+                document.getElementById('leaderboardBody').innerHTML = 
+                    '<tr><td colspan="4" style="text-align: center; color: #ff6b6b;">Failed to load leaderboard</td></tr>';
+                addEventLog(`❌ Failed to load leaderboard: ${error.message}`);
+            }
+        }
+
+        // Add event to log
+        function addEventLog(message) {
+            const eventLog = document.getElementById('eventLog');
+            const eventItem = document.createElement('div');
+            eventItem.className = 'event-item';
+            eventItem.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong> - ${message}`;
+            
+            eventLog.insertBefore(eventItem, eventLog.firstChild);
+            
+            // Keep only last 20 events
+            const events = eventLog.children;
+            if (events.length > 20) {
+                eventLog.removeChild(events[events.length - 1]);
+            }
+        }
+
+        // Initialize app when page loads
+        window.addEventListener('load', init);
+    </script>
 </body>
 </html>

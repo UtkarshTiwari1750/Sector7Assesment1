@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node scripts/start-all.js",
+    "api": "node api/index.js",
+    "leaderboard": "node tools/leaderboard.js",
+    "frontend": "npx http-server web -p 8080 --cors",
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.js --network localhost",
+    "node": "npx hardhat node"
   },
   "workspaces": [
     "contracts",
@@ -27,8 +34,10 @@
   "license": "ISC",
   "dependencies": {
     "@openzeppelin/contracts": "^5.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "http-server": "^14.1.1",
     "jest": "^30.0.5"
   }
 }
