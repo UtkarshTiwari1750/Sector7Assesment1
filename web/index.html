@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TriX Game</title>
+<script>
+async function buyGT() {
+  const usdtAmount = document.getElementById("usdtAmount").value;
+  const res = await fetch(`/purchase?amount=${usdtAmount}`);
+  console.log(await res.json());
+}
+</script>
+</head>
+<body>
+<h1>TriX Game</h1>
+<div>
+  <h2>Buy GT</h2>
+  <input id="usdtAmount" placeholder="USDT amount" />
+  <button onclick="buyGT()">Buy</button>
+</div>
+</body>
+</html>
