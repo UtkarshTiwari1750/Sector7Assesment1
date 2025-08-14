@@ -1,0 +1,234 @@
+
+> sector7@1.0.0 start
+> node scripts/start-all.js
+
+🚀 Starting TriX Game Platform Services...
+
+🎮 Starting Game Server...
+📡 Starting Backend API...
+📊 Starting Leaderboard Service...
+🌐 Starting Frontend Server...
+
+✅ All services started!
+🎮 Game Platform: http://localhost:8080/game.html
+📊 Admin Panel: http://localhost:8080/index.html
+🎯 Game Server: http://localhost:3000
+📈 Leaderboard API: http://localhost:3001
+
+Press Ctrl+C to stop all services
+
+[dotenv@17.2.1] injecting env (8) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.2.1] injecting env (8) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.1] injecting env (8) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+🚀 Starting Leaderboard Event Listener...
+PlayGame Contract: 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9
+TokenStore Contract: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
+✅ Leaderboard service initialized and listening for events...
+📊 Leaderboard API listening on port 3001
+Health check: http://localhost:3001/health
+Leaderboard: http://localhost:3001/leaderboard
+Events: http://localhost:3001/events
+Stats: http://localhost:3001/stats
+🚀 Backend API listening on port 5173
+Health check: http://localhost:5173/health
+Contracts: http://localhost:5173/contracts
+🎮 Game Server with Socket.IO listening on port 3000
+📊 Health check: http://localhost:3000/health
+📈 Game stats: http://localhost:3000/stats/games
+🔌 Player connected: waMifT8n24CwAhLzAAAB
+node:events:495
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use 0.0.0.0:8080
+    at Server.setupListenHandle [as _listen2] (node:net:1811:16)
+    at listenInCluster (node:net:1859:12)
+    at doListen (node:net:2008:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1838:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 8080
+}
+
+Node.js v18.19.1
+Frontend server exited with code 1
+🔌 Player connected: fscbTNZBKWbP2yaaAAAD
+🔌 Player connected: YmrY69Gys-Of6_3OAAAF
+🔌 Player disconnected: waMifT8n24CwAhLzAAAB
+🔌 Player connected: KCWmceH8nY0PnBnMAAAH
+🔌 Player disconnected: KCWmceH8nY0PnBnMAAAH
+🔌 Player connected: CeJmaSBKRpl5PLIQAAAJ
+🔌 Player disconnected: CeJmaSBKRpl5PLIQAAAJ
+🔌 Player connected: JHiSib3m-5Z2wCgUAAAL
+🔌 Player disconnected: JHiSib3m-5Z2wCgUAAAL
+🔌 Player connected: 3OKoJl-gbuDOA1OTAAAN
+API Error: Error: execution reverted (unknown custom error) (action="estimateGas", data="0xfb8f41b20000000000000000000000009fe46736679d2d9a65f0992f2272de9f3c7fa6e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005f5e100", reason=null, transaction={ "data": "0xd96a094a0000000000000000000000000000000000000000000000000000000005f5e100", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at getBuiltinCallException (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/abi-coder.js:105:37)
+    at AbiCoder.getBuiltinCallException (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/abi-coder.js:206:16)
+    at JsonRpcProvider.getRpcError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/providers/provider-jsonrpc.js:695:43)
+    at /home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/providers/provider-jsonrpc.js:302:45
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0xfb8f41b20000000000000000000000009fe46736679d2d9a65f0992f2272de9f3c7fa6e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005f5e100',
+  reason: null,
+  transaction: {
+    to: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0',
+    data: '0xd96a094a0000000000000000000000000000000000000000000000000000000005f5e100',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'execution reverted (unknown custom error)',
+  info: {
+    error: {
+      code: -32603,
+      message: `Error: VM Exception while processing transaction: reverted with custom error 'ERC20InsufficientAllowance("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0", 0, 100000000)'`,
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 5,
+      jsonrpc: '2.0'
+    }
+  }
+}
+🔌 Player disconnected: 3OKoJl-gbuDOA1OTAAAN
+API Error: Error: could not decode result data (value="0x", info={ "method": "balanceOf", "signature": "balanceOf(address)" }, code=BAD_DATA, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at assert (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:157:15)
+    at Interface.decodeFunctionResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/interface.js:780:31)
+    at staticCallResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:254:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async staticCall (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:219:24)
+    at async Proxy.balanceOf (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:259:20)
+    at async /home/utkarsh/Sector7/api/game-server.js:123:19 {
+  code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'balanceOf', signature: 'balanceOf(address)' },
+  shortMessage: 'could not decode result data'
+}
+Balance check error: Error: could not decode result data (value="0x", info={ "method": "balanceOf", "signature": "balanceOf(address)" }, code=BAD_DATA, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at assert (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:157:15)
+    at Interface.decodeFunctionResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/interface.js:780:31)
+    at staticCallResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:254:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async staticCall (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:219:24)
+    at async Proxy.balanceOf (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:259:20)
+    at async Promise.all (index 0)
+    at async /home/utkarsh/Sector7/api/game-server.js:140:38 {
+  code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'balanceOf', signature: 'balanceOf(address)' },
+  shortMessage: 'could not decode result data'
+}
+🔌 Player connected: cwP6Tl240MibFR6IAAAP
+Balance check error: Error: could not decode result data (value="0x", info={ "method": "balanceOf", "signature": "balanceOf(address)" }, code=BAD_DATA, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at assert (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:157:15)
+    at Interface.decodeFunctionResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/interface.js:780:31)
+    at staticCallResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:254:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async staticCall (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:219:24)
+    at async Proxy.balanceOf (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:259:20)
+    at async Promise.all (index 0)
+    at async /home/utkarsh/Sector7/api/game-server.js:140:38 {
+  code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'balanceOf', signature: 'balanceOf(address)' },
+  shortMessage: 'could not decode result data'
+}
+USDT Allowance check error: Error: could not decode result data (value="0x", info={ "method": "allowance", "signature": "allowance(address,address)" }, code=BAD_DATA, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at assert (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:157:15)
+    at Interface.decodeFunctionResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/interface.js:780:31)
+    at staticCallResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:254:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async staticCall (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:219:24)
+    at async Proxy.allowance (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:259:20)
+    at async /home/utkarsh/Sector7/api/index.js:79:23 {
+  code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'allowance', signature: 'allowance(address,address)' },
+  shortMessage: 'could not decode result data'
+}
+API Error: Error: could not decode result data (value="0x", info={ "method": "balanceOf", "signature": "balanceOf(address)" }, code=BAD_DATA, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at assert (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:157:15)
+    at Interface.decodeFunctionResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/interface.js:780:31)
+    at staticCallResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:254:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async staticCall (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:219:24)
+    at async Proxy.balanceOf (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:259:20)
+    at async /home/utkarsh/Sector7/api/game-server.js:123:19 {
+  code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'balanceOf', signature: 'balanceOf(address)' },
+  shortMessage: 'could not decode result data'
+}
+Balance check error: Error: could not decode result data (value="0x", info={ "method": "balanceOf", "signature": "balanceOf(address)" }, code=BAD_DATA, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at assert (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:157:15)
+    at Interface.decodeFunctionResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/interface.js:780:31)
+    at staticCallResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:254:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async staticCall (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:219:24)
+    at async Proxy.balanceOf (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:259:20)
+    at async Promise.all (index 0)
+    at async /home/utkarsh/Sector7/api/game-server.js:140:38 {
+  code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'balanceOf', signature: 'balanceOf(address)' },
+  shortMessage: 'could not decode result data'
+}
+USDT Allowance check error: Error: could not decode result data (value="0x", info={ "method": "allowance", "signature": "allowance(address,address)" }, code=BAD_DATA, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at assert (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:157:15)
+    at Interface.decodeFunctionResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/interface.js:780:31)
+    at staticCallResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:254:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async staticCall (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:219:24)
+    at async Proxy.allowance (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:259:20)
+    at async /home/utkarsh/Sector7/api/index.js:79:23 {
+  code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'allowance', signature: 'allowance(address,address)' },
+  shortMessage: 'could not decode result data'
+}
+API Error: Error: could not decode result data (value="0x", info={ "method": "balanceOf", "signature": "balanceOf(address)" }, code=BAD_DATA, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at assert (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:157:15)
+    at Interface.decodeFunctionResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/interface.js:780:31)
+    at staticCallResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:254:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async staticCall (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:219:24)
+    at async Proxy.balanceOf (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:259:20)
+    at async /home/utkarsh/Sector7/api/game-server.js:123:19 {
+  code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'balanceOf', signature: 'balanceOf(address)' },
+  shortMessage: 'could not decode result data'
+}
+Balance check error: Error: could not decode result data (value="0x", info={ "method": "balanceOf", "signature": "balanceOf(address)" }, code=BAD_DATA, version=6.15.0)
+    at makeError (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:137:21)
+    at assert (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/utils/errors.js:157:15)
+    at Interface.decodeFunctionResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/abi/interface.js:780:31)
+    at staticCallResult (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:254:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async staticCall (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:219:24)
+    at async Proxy.balanceOf (/home/utkarsh/Sector7/node_modules/ethers/lib.commonjs/contract/contract.js:259:20)
+    at async Promise.all (index 0)
+    at async /home/utkarsh/Sector7/api/game-server.js:140:38 {
+  code: 'BAD_DATA',
+  value: '0x',
+  info: { method: 'balanceOf', signature: 'balanceOf(address)' },
+  shortMessage: 'could not decode result data'
+}

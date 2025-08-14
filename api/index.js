@@ -26,7 +26,30 @@ const asyncHandler = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next);
 };
 
-// Purchase GT tokens
+// Approve USDT for purchase (user must call this from frontend)
+app.post("/approve-usdt", asyncHandler(async (req, res) => {
+  const { userAddress, amount } = req.body;
+  
+  if (!userAddress || !ethers.isAddress(userAddress)) {
+    return res.status(400).json({ error: "Invalid user address" });
+  }
+  
+  if (!amount || parseFloat(amount) <= 0) {
+    return res.status(400).json({ error: "Invalid amount" });
+  }
+  
+  const usdtAmount = ethers.parseUnits(amount, 6); // USDT has 6 decimals
+  
+  // Return the transaction data for the frontend to sign
+  res.json({
+    contractAddress: process.env.MOCKUSDT_ADDR,
+    spenderAddress: process.env.TOKENSTORE_ADDR,
+    amount: usdtAmount.toString(),
+    message: "Approve this transaction in MetaMask to allow USDT spending"
+  });
+}));
+
+// Purchase GT tokens (assumes USDT is already approved)
 app.get("/purchase", asyncHandler(async (req, res) => {
   const amount = req.query.amount;
   if (!amount || parseFloat(amount) <= 0) {
@@ -42,6 +65,60 @@ app.get("/purchase", asyncHandler(async (req, res) => {
     usdtAmount: amount,
     message: "Purchase successful"
   });
+}));
+
+// Check USDT allowance for TokenStore
+app.get("/allowance/:address", asyncHandler(async (req, res) => {
+  const address = req.params.address;
+  
+  if (!ethers.isAddress(address)) {
+    return res.status(400).json({ error: "Invalid address" });
+  }
+  
+  try {
+    const allowance = await mockUSDT.allowance(address, process.env.TOKENSTORE_ADDR);
+    
+    res.json({ 
+      address: address,
+      spender: process.env.TOKENSTORE_ADDR,
+      allowance: ethers.formatUnits(allowance, 6),
+      allowanceWei: allowance.toString()
+    });
+  } catch (error) {
+    console.error("USDT Allowance check error:", error);
+    res.status(500).json({ 
+      error: "Failed to get USDT allowance", 
+      message: error.message,
+      contractAddress: process.env.MOCKUSDT_ADDR
+    });
+  }
+}));
+
+// Check GT token allowance for PlayGame contract
+app.get("/gt-allowance/:address", asyncHandler(async (req, res) => {
+  const address = req.params.address;
+  
+  if (!ethers.isAddress(address)) {
+    return res.status(400).json({ error: "Invalid address" });
+  }
+  
+  try {
+    const allowance = await gameToken.allowance(address, process.env.PLAYGAME_ADDR);
+    
+    res.json({ 
+      address: address,
+      spender: process.env.PLAYGAME_ADDR,
+      allowance: ethers.formatEther(allowance),
+      allowanceWei: allowance.toString()
+    });
+  } catch (error) {
+    console.error("GT Allowance check error:", error);
+    res.status(500).json({ 
+      error: "Failed to get GT allowance", 
+      message: error.message,
+      contractAddress: process.env.GAMETOKEN_ADDR
+    });
+  }
 }));
 
 // Create match
@@ -68,7 +145,7 @@ app.post("/match/start", asyncHandler(async (req, res) => {
 
 // Stake in match
 app.post("/match/stake", asyncHandler(async (req, res) => {
-  const { matchId, player } = req.body;
+  const { matchId, player, privateKey } = req.body;
   
   if (!matchId || !player) {
     return res.status(400).json({ error: "Missing required fields" });
@@ -78,7 +155,18 @@ app.post("/match/stake", asyncHandler(async (req, res) => {
     return res.status(400).json({ error: "Invalid player address" });
   }
   
-  const tx = await playGame.stake(matchId);
+  // Note: In production, you should handle player authentication properly
+  // This is a simplified approach for development
+  let playerWallet;
+  if (privateKey) {
+    playerWallet = new ethers.Wallet(privateKey, provider);
+  } else {
+    // Fallback to default wallet (current behavior)
+    playerWallet = wallet;
+  }
+  
+  const playGameWithPlayer = playGame.connect(playerWallet);
+  const tx = await playGameWithPlayer.stake(matchId);
   await tx.wait();
   
   res.json({ 
@@ -120,13 +208,31 @@ app.get("/balance/:address", asyncHandler(async (req, res) => {
     return res.status(400).json({ error: "Invalid address" });
   }
   
-  const balance = await gameToken.balanceOf(address);
-  
-  res.json({ 
-    address: address,
-    balance: ethers.formatEther(balance),
-    balanceWei: balance.toString()
-  });
+  try {
+    // Check if contract exists first
+    const code = await provider.getCode(process.env.GAMETOKEN_ADDR);
+    if (code === '0x') {
+      return res.status(500).json({ 
+        error: "GameToken contract not deployed", 
+        contractAddress: process.env.GAMETOKEN_ADDR 
+      });
+    }
+    
+    const balance = await gameToken.balanceOf(address);
+    
+    res.json({ 
+      address: address,
+      balance: ethers.formatEther(balance),
+      balanceWei: balance.toString()
+    });
+  } catch (error) {
+    console.error("Balance check error:", error);
+    res.status(500).json({ 
+      error: "Failed to get balance", 
+      message: error.message,
+      contractAddress: process.env.GAMETOKEN_ADDR
+    });
+  }
 }));
 
 // Get match details
@@ -182,7 +288,7 @@ app.get("/health", (req, res) => {
   });
 });
 
-// Get USDT balance for an address
+// Get USDT and GT balances for an address (combined endpoint)
 app.get("/usdt-balance/:address", asyncHandler(async (req, res) => {
   const address = req.params.address;
   
@@ -190,13 +296,60 @@ app.get("/usdt-balance/:address", asyncHandler(async (req, res) => {
     return res.status(400).json({ error: "Invalid address" });
   }
   
-  const balance = await mockUSDT.balanceOf(address);
-  
-  res.json({ 
-    address: address,
-    balance: ethers.formatUnits(balance, 6), // USDT has 6 decimals
-    balanceWei: balance.toString()
-  });
+  try {
+    // Check if contracts exist first
+    const [usdtCode, gtCode] = await Promise.all([
+      provider.getCode(process.env.MOCKUSDT_ADDR),
+      provider.getCode(process.env.GAMETOKEN_ADDR)
+    ]);
+    
+    if (usdtCode === '0x') {
+      return res.status(500).json({ 
+        error: "MockUSDT contract not deployed", 
+        contractAddress: process.env.MOCKUSDT_ADDR 
+      });
+    }
+    
+    if (gtCode === '0x') {
+      return res.status(500).json({ 
+        error: "GameToken contract not deployed", 
+        contractAddress: process.env.GAMETOKEN_ADDR 
+      });
+    }
+    
+    // Get both balances simultaneously
+    const [usdtBalance, gtBalance] = await Promise.all([
+      mockUSDT.balanceOf(address),
+      gameToken.balanceOf(address)
+    ]);
+    
+    res.json({ 
+      address: address,
+      usdt: {
+        balance: ethers.formatUnits(usdtBalance, 6), // USDT has 6 decimals
+        balanceWei: usdtBalance.toString(),
+        symbol: "USDT"
+      },
+      gt: {
+        balance: ethers.formatEther(gtBalance), // GT has 18 decimals
+        balanceWei: gtBalance.toString(),
+        symbol: "GT"
+      },
+      // Legacy support - keep old format for backward compatibility
+      balance: ethers.formatUnits(usdtBalance, 6),
+      balanceWei: usdtBalance.toString()
+    });
+  } catch (error) {
+    console.error("Balance check error:", error);
+    res.status(500).json({ 
+      error: "Failed to get balances", 
+      message: error.message,
+      contractAddresses: {
+        mockUSDT: process.env.MOCKUSDT_ADDR,
+        gameToken: process.env.GAMETOKEN_ADDR
+      }
+    });
+  }
 }));
 
 // Faucet - Get test USDT (only for development)
@@ -237,6 +390,14 @@ app.get("/contracts", (req, res) => {
 app.use((error, req, res, next) => {
   console.error("API Error:", error);
   
+  if (error.code === 'BAD_DATA') {
+    return res.status(500).json({ 
+      error: "Contract call returned invalid data", 
+      message: "The smart contract call returned empty or invalid data. Contract may not be deployed or the method doesn't exist.",
+      details: error.message
+    });
+  }
+  
   if (error.code === 'CALL_EXCEPTION') {
     return res.status(400).json({ error: "Smart contract call failed: " + error.reason });
   }
@@ -257,7 +418,7 @@ app.use((req, res) => {
   res.status(404).json({ error: "Endpoint not found" });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5173;
 app.listen(PORT, () => {
   console.log(`🚀 Backend API listening on port ${PORT}`);
   console.log(`Health check: http://localhost:${PORT}/health`);

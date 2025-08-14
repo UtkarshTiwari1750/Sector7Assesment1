@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Flow Test - MetaMask Integration</title>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.0/dist/ethers.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .step.active {
+            border-color: #4CAF50;
+            background: #f1f8e9;
+        }
+        .step.error {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        button:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        .info {
+            background: #e3f2fd;
+            border: 1px solid #2196F3;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .error {
+            background: #ffebee;
+            border: 1px solid #f44336;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            color: #d32f2f;
+        }
+        .success {
+            background: #e8f5e8;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            color: #2e7d32;
+        }
+        .account-info {
+            background: #fff3e0;
+            border: 1px solid #ff9800;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Game Flow Test - Proper MetaMask Integration</h1>
+        <p>This page demonstrates the correct way to test your game flow with multiple MetaMask accounts.</p>
+        
+        <div class="account-info">
+            <strong>Current Account:</strong> <span id="currentAccount">Not connected</span>
+            <button onclick="connectWallet()">Connect Wallet</button>
+            <button onclick="switchAccount()">Switch Account</button>
+        </div>
+
+        <div class="step" id="step1">
+            <h3>Step 1: Initialize & Connect</h3>
+            <p>Connect your MetaMask wallet to begin testing.</p>
+            <button onclick="initializeWallet()">Initialize Wallet</button>
+            <div id="step1-output"></div>
+        </div>
+
+        <div class="step" id="step2">
+            <h3>Step 2: Create Match (Admin Only)</h3>
+            <p>Create a new match between two players.</p>
+            <input type="text" id="matchId" placeholder="Match ID (e.g., test-match-1)" style="width: 200px;">
+            <input type="text" id="player1" placeholder="Player 1 Address" style="width: 300px;">
+            <input type="text" id="player2" placeholder="Player 2 Address" style="width: 300px;">
+            <input type="text" id="stakeAmount" placeholder="Stake Amount (GT)" value="10" style="width: 100px;">
+            <br><br>
+            <button onclick="createMatch()">Create Match</button>
+            <div id="step2-output"></div>
+        </div>
+
+        <div class="step" id="step3">
+            <h3>Step 3: Player 1 Stakes</h3>
+            <p>Switch to Player 1's MetaMask account and stake.</p>
+            <input type="text" id="stakeMatchId" placeholder="Match ID" style="width: 300px;">
+            <button onclick="stakeInMatch()">Stake as Current Account</button>
+            <div id="step3-output"></div>
+        </div>
+
+        <div class="step" id="step4">
+            <h3>Step 4: Player 2 Stakes</h3>
+            <p><strong>Switch to Player 2's MetaMask account</strong> and stake.</p>
+            <button onclick="stakeInMatch()">Stake as Current Account</button>
+            <div id="step4-output"></div>
+        </div>
+
+        <div class="step" id="step5">
+            <h3>Step 5: Check Match Status</h3>
+            <p>Check if both players have staked and match is ready for results.</p>
+            <button onclick="checkMatchStatus()">Check Match Status</button>
+            <div id="step5-output"></div>
+        </div>
+
+        <div class="step" id="step6">
+            <h3>Step 6: Submit Result (Operator Only)</h3>
+            <p>Submit the match result (operator must be connected).</p>
+            <input type="text" id="resultMatchId" placeholder="Match ID" style="width: 300px;">
+            <input type="text" id="winner" placeholder="Winner Address" style="width: 300px;">
+            <button onclick="submitResult()">Submit Result via API</button>
+            <div id="step6-output"></div>
+        </div>
+
+        <div class="info">
+            <h4>📝 Testing Instructions:</h4>
+            <ol>
+                <li><strong>Use two different MetaMask accounts</strong> (Player 1 and Player 2)</li>
+                <li><strong>Make sure both accounts have GT tokens</strong></li>
+                <li><strong>Switch accounts</strong> in MetaMask between steps</li>
+                <li><strong>Each player must stake from their own account</strong></li>
+                <li><strong>Only after both stake, you can submit results</strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="js/wallet-integration.js"></script>
+    <script>
+        let walletIntegration = null;
+        let currentMatchId = null;
+
+        async function initializeWallet() {
+            try {
+                walletIntegration = new WalletIntegration();
+                await walletIntegration.init();
+                await connectWallet();
+                document.getElementById('step1-output').innerHTML = '<div class="success">✅ Wallet initialized successfully!</div>';
+                document.getElementById('step1').classList.add('active');
+            } catch (error) {
+                document.getElementById('step1-output').innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                document.getElementById('step1').classList.add('error');
+            }
+        }
+
+        async function connectWallet() {
+            try {
+                if (!walletIntegration) {
+                    walletIntegration = new WalletIntegration();
+                    await walletIntegration.init();
+                }
+                const address = await walletIntegration.connect();
+                document.getElementById('currentAccount').textContent = address;
+                
+                // Check GT balance
+                const balance = await walletIntegration.contracts.gameToken.balanceOf(address);
+                const balanceFormatted = ethers.formatEther(balance);
+                document.getElementById('currentAccount').textContent = `${address} (${balanceFormatted} GT)`;
+                
+            } catch (error) {
+                alert(`Error connecting wallet: ${error.message}`);
+            }
+        }
+
+        async function switchAccount() {
+            alert('Please switch accounts in MetaMask, then click "Connect Wallet" again.');
+        }
+
+        async function createMatch() {
+            try {
+                const matchId = document.getElementById('matchId').value || 'test-match-' + Date.now();
+                const player1 = document.getElementById('player1').value;
+                const player2 = document.getElementById('player2').value;
+                const stake = document.getElementById('stakeAmount').value || '10';
+                
+                if (!player1 || !player2) {
+                    throw new Error('Please provide both player addresses');
+                }
+
+                const stakeWei = ethers.parseEther(stake);
+                const matchIdBytes = ethers.encodeBytes32String(matchId);
+                
+                const response = await fetch('http://localhost:3000/match/start', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        matchId: matchIdBytes,
+                        p1: player1,
+                        p2: player2,
+                        stake: stakeWei
+                    }),
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    currentMatchId = matchIdBytes;
+                    document.getElementById('stakeMatchId').value = matchIdBytes;
+                    document.getElementById('resultMatchId').value = matchIdBytes;
+                    document.getElementById('step2-output').innerHTML = `<div class="success">✅ Match created! TX: ${result.txHash}<br>Match ID: ${matchIdBytes}</div>`;
+                    document.getElementById('step2').classList.add('active');
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                document.getElementById('step2-output').innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                document.getElementById('step2').classList.add('error');
+            }
+        }
+
+        async function stakeInMatch() {
+            try {
+                const matchId = document.getElementById('stakeMatchId').value || currentMatchId;
+                if (!matchId) {
+                    throw new Error('Please provide match ID');
+                }
+
+                if (!walletIntegration) {
+                    throw new Error('Please initialize wallet first');
+                }
+
+                // Get match details to determine stake amount
+                const match = await walletIntegration.getMatch(matchId);
+                const stakeAmount = ethers.parseEther(match.stake);
+                
+                const currentAccount = await walletIntegration.getCurrentAccount();
+                
+                // Determine which step we're in
+                const isPlayer1 = currentAccount.toLowerCase() === match.p1.toLowerCase();
+                const isPlayer2 = currentAccount.toLowerCase() === match.p2.toLowerCase();
+                
+                if (!isPlayer1 && !isPlayer2) {
+                    throw new Error(`Current account ${currentAccount} is not a player in this match`);
+                }
+                
+                const txHash = await walletIntegration.stakeInMatch(matchId, stakeAmount);
+                
+                const stepElement = isPlayer1 ? 'step3-output' : 'step4-output';
+                const stepDiv = isPlayer1 ? 'step3' : 'step4';
+                
+                document.getElementById(stepElement).innerHTML = `<div class="success">✅ Successfully staked! TX: ${txHash}</div>`;
+                document.getElementById(stepDiv).classList.add('active');
+                
+            } catch (error) {
+                // Determine which output to update based on current account
+                let outputElement = 'step3-output';
+                let stepDiv = 'step3';
+                
+                try {
+                    const currentAccount = await walletIntegration.getCurrentAccount();
+                    const matchId = document.getElementById('stakeMatchId').value || currentMatchId;
+                    const match = await walletIntegration.getMatch(matchId);
+                    
+                    if (currentAccount.toLowerCase() === match.p2.toLowerCase()) {
+                        outputElement = 'step4-output';
+                        stepDiv = 'step4';
+                    }
+                } catch (e) {
+                    // Use default
+                }
+                
+                document.getElementById(outputElement).innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                document.getElementById(stepDiv).classList.add('error');
+            }
+        }
+
+        async function checkMatchStatus() {
+            try {
+                const matchId = document.getElementById('stakeMatchId').value || currentMatchId;
+                if (!matchId) {
+                    throw new Error('Please provide match ID');
+                }
+
+                const match = await walletIntegration.getMatch(matchId);
+                const statusNames = ['NONE', 'CREATED', 'STAKED', 'SETTLED', 'REFUNDED'];
+                
+                document.getElementById('step5-output').innerHTML = `
+                    <div class="info">
+                        <strong>Match Status:</strong> ${match.status} (${statusNames[match.status]})<br>
+                        <strong>Player 1:</strong> ${match.p1}<br>
+                        <strong>Player 2:</strong> ${match.p2}<br>
+                        <strong>Stake:</strong> ${match.stake} GT<br>
+                        <strong>Start Time:</strong> ${match.startTime}<br>
+                        <strong>Winner:</strong> ${match.winner}
+                    </div>
+                `;
+                
+                if (match.status == 2) {
+                    document.getElementById('step5-output').innerHTML += '<div class="success">🎉 Match is ready for result submission!</div>';
+                }
+                
+                document.getElementById('step5').classList.add('active');
+                
+            } catch (error) {
+                document.getElementById('step5-output').innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                document.getElementById('step5').classList.add('error');
+            }
+        }
+
+        async function submitResult() {
+            try {
+                const matchId = document.getElementById('resultMatchId').value || currentMatchId;
+                const winner = document.getElementById('winner').value;
+                
+                if (!matchId || !winner) {
+                    throw new Error('Please provide match ID and winner address');
+                }
+
+                const response = await fetch('http://localhost:3000/match/result', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        matchId: matchId,
+                        winner: winner
+                    }),
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    document.getElementById('step6-output').innerHTML = `<div class="success">✅ Result submitted! TX: ${result.txHash}</div>`;
+                    document.getElementById('step6').classList.add('active');
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                document.getElementById('step6-output').innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                document.getElementById('step6').classList.add('error');
+            }
+        }
+
+        // Auto-fill player addresses with common test accounts
+        window.addEventListener('load', () => {
+            document.getElementById('player1').value = '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266';
+            document.getElementById('player2').value = '0x70997970C51812dc3A010C7d01b50e0d17dc79C8';
+            document.getElementById('winner').value = '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266';
+        });
+    </script>
+</body>
+</html>

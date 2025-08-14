@@ -1,0 +1,1337 @@
+WARNING: You are currently using Node.js v18.19.1, which is not supported by Hardhat. This can lead to unexpected behavior. See https://hardhat.org/nodejs-versions
+
+
+Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
+
+Accounts
+========
+
+WARNING: These accounts, and their private keys, are publicly known.
+Any funds sent to them on Mainnet or any other live network WILL BE LOST.
+
+Account #0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 (10000 ETH)
+Private Key: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+
+Account #1: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 (10000 ETH)
+Private Key: 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
+
+Account #2: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC (10000 ETH)
+Private Key: 0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a
+
+Account #3: 0x90F79bf6EB2c4f870365E785982E1f101E93b906 (10000 ETH)
+Private Key: 0x7c852118294e51e653712a81e05800f419141751be58f605c371e15141b007a6
+
+Account #4: 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65 (10000 ETH)
+Private Key: 0x47e179ec197488593b187f80a00eb0da91f1b9d0b13f8733639f19c30a34926a
+
+Account #5: 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc (10000 ETH)
+Private Key: 0x8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffba
+
+Account #6: 0x976EA74026E726554dB657fA54763abd0C3a0aa9 (10000 ETH)
+Private Key: 0x92db14e403b83dfe3df233f83dfa3a0d7096f21ca9b0d6d6b8d88b2b4ec1564e
+
+Account #7: 0x14dC79964da2C08b23698B3D3cc7Ca32193d9955 (10000 ETH)
+Private Key: 0x4bbbf85ce3377467afe5d46f804f221813b2bb87f24d81f60f1fcdbf7cbf4356
+
+Account #8: 0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f (10000 ETH)
+Private Key: 0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97
+
+Account #9: 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720 (10000 ETH)
+Private Key: 0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c6
+
+Account #10: 0xBcd4042DE499D14e55001CcbB24a551F3b954096 (10000 ETH)
+Private Key: 0xf214f2b2cd398c806f84e317254e0f0b801d0643303237d97a22a48e01628897
+
+Account #11: 0x71bE63f3384f5fb98995898A86B02Fb2426c5788 (10000 ETH)
+Private Key: 0x701b615bbdfb9de65240bc28bd21bbc0d996645a3dd57e7b12bc2bdf6f192c82
+
+Account #12: 0xFABB0ac9d68B0B445fB7357272Ff202C5651694a (10000 ETH)
+Private Key: 0xa267530f49f8280200edf313ee7af6b827f2a8bce2897751d06a843f644967b1
+
+Account #13: 0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec (10000 ETH)
+Private Key: 0x47c99abed3324a2707c28affff1267e45918ec8c3f20b8aa892e8b065d2942dd
+
+Account #14: 0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097 (10000 ETH)
+Private Key: 0xc526ee95bf44d8fc405a158bb884d9d1238d99f0612e9f33d006bb0789009aaa
+
+Account #15: 0xcd3B766CCDd6AE721141F452C550Ca635964ce71 (10000 ETH)
+Private Key: 0x8166f546bab6da521a8369cab06c5d2b9e46670292d85c875ee9ec20e84ffb61
+
+Account #16: 0x2546BcD3c84621e976D8185a91A922aE77ECEc30 (10000 ETH)
+Private Key: 0xea6c44ac03bff858b476bba40716402b03e41b8e97e276d1baec7c37d42484a0
+
+Account #17: 0xbDA5747bFD65F08deb54cb465eB87D40e51B197E (10000 ETH)
+Private Key: 0x689af8efa8c651a91ad287602527f3af2fe9f6501a7ac4b061667b5a93e037fd
+
+Account #18: 0xdD2FD4581271e230360230F9337D5c0430Bf44C0 (10000 ETH)
+Private Key: 0xde9be858da4a475276426320d5e9262ecfc3ba460bfac56360bfa6c4c28b4ee0
+
+Account #19: 0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199 (10000 ETH)
+Private Key: 0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e
+
+WARNING: These accounts, and their private keys, are publicly known.
+Any funds sent to them on Mainnet or any other live network WILL BE LOST.
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_getBalance[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_blockNumber[0m
+[32meth_getBlockByNumber[0m
+[32meth_feeHistory[0m
+[32meth_maxPriorityFeePerGas[0m
+[32meth_sendTransaction[0m
+  Contract deployment: MockUSDT
+  Contract address:    0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Transaction:         0x26590780c7d197e76eb95588c43592777d2549a3bcbb642e0715dbaba5cf0aa5
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            1002887 of 30000000
+  Block #1:            0x5f2f8b7af688da3db1d0e2133002c5422b401a764438c2a315939cc1f442ef51
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract deployment: GameToken
+  Contract address:    0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+  Transaction:         0x17fad443a756a3e857461d6b9349fe47c2925dea0ccefdb0b9182d59d0f12ddc
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            1226848 of 30000000
+  Block #2:            0xe13867e44ab94714f30ffd6e746ecedef28459e91389776abd456395ea8c7c24
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract deployment: TokenStore
+  Contract address:    0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+  Transaction:         0x6fc84d311a4885ce1667cd6e47ea316dfa86d06ecb4520caf5705db58069d969
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            809118 of 30000000
+  Block #3:            0x6b2fc2950f4081ba53ed4478a5f70d8e51b09c688eb26dc4b66875a85f5700da
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract deployment: PlayGame
+  Contract address:    0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9
+  Transaction:         0x47f8e86020ee9410ab304d7f8542d50a7bdedb33c1eede3c495b59c89d54222f
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            1633036 of 30000000
+  Block #4:            0x814fffa2168be07bb92622ac52d57249dd9aff9ddf95a6c0f72880cf667b8b7f
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract call:       GameToken#setTokenStore
+  Transaction:         0xde399da291e782c376873cc93a6ea328d149a71561cfd316059211755a8d3819
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+  Value:               0 ETH
+  Gas used:            46363 of 30000000
+  Block #5:            0xd62cbb67086c9e990bc9be98242816b856ee83aa0b6d0ec209b3e78100ce8202
+
+[32meth_getTransactionByHash[0m
+[32meth_chainId[0m
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_blockNumber[0m
+[32meth_getBlockByNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract call:       MockUSDT#transfer
+  Transaction:         0x30a3dd55bd02afc4108e3ef53ab99fe26d1a5231f2d28c0104f2c78c7ff0f93d
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            52174 of 30000000
+  Block #6:            0xd8be9b34f8c445b88d6a6c96d782b4ffe93b81ff2f127d0a9b52b2b1b3b53a6c
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract call:       MockUSDT#transfer
+  Transaction:         0x01abc1050372c9ae5d74b63cd4a54254f0133fd0b4e9e20bf4b927539a601f08
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            52162 of 30000000
+  Block #7:            0x800117ecb876095190673cd6d49c0f2517fb4c3a7f69ad0e3e378df546e38e2d
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract call:       MockUSDT#transfer
+  Transaction:         0x75ff886735cf552cf283b9e90c64f208afdff3fd39387081554ee442ab819785
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            52174 of 30000000
+  Block #8:            0x72ee80735d9ef6508fbf41df88f5bbf7248607805d01fb28ef338916f20ba55e
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_chainId[0m
+[32meth_newFilter[0m
+[32meth_newFilter (2)[0m
+[32meth_newFilter (3)[0m
+[32meth_newFilter (4)[0m
+[32meth_newFilter (5)[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_blockNumber (11)[0m
+[32meth_blockNumber (12)[0m
+[32meth_blockNumber (13)[0m
+[32meth_blockNumber (14)[0m
+[32meth_blockNumber (15)[0m
+[32meth_blockNumber (16)[0m
+[32meth_blockNumber (17)[0m
+[32meth_blockNumber (18)[0m
+[32meth_blockNumber (19)[0m
+[32meth_blockNumber (20)[0m
+[32meth_blockNumber (21)[0m
+[32meth_blockNumber (22)[0m
+[32meth_blockNumber (23)[0m
+[32meth_blockNumber (24)[0m
+[32meth_blockNumber (25)[0m
+[32meth_blockNumber (26)[0m
+[32meth_blockNumber (27)[0m
+[32meth_blockNumber (28)[0m
+[32meth_blockNumber (29)[0m
+[32meth_blockNumber (30)[0m
+[32meth_blockNumber (31)[0m
+[32meth_blockNumber (32)[0m
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_blockNumber (11)[0m
+[32meth_blockNumber (12)[0m
+[32meth_blockNumber (13)[0m
+[32meth_blockNumber (14)[0m
+[32meth_blockNumber (15)[0m
+[32meth_blockNumber (16)[0m
+[32meth_blockNumber (17)[0m
+[32meth_blockNumber (18)[0m
+[32meth_blockNumber (19)[0m
+[32meth_blockNumber (20)[0m
+[32meth_blockNumber (21)[0m
+[32meth_blockNumber (22)[0m
+[32meth_blockNumber (23)[0m
+[32meth_blockNumber (24)[0m
+[32meth_blockNumber (25)[0m
+[32meth_blockNumber (26)[0m
+[32meth_blockNumber (27)[0m
+[32meth_blockNumber (28)[0m
+[32meth_blockNumber (29)[0m
+[32meth_blockNumber (30)[0m
+[32meth_blockNumber (31)[0m
+[32meth_blockNumber (32)[0m
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[31meth_getBalance[0m
+
+  Received invalid block tag 36. Latest block number is 8
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_blockNumber (11)[0m
+[32meth_blockNumber (12)[0m
+[32meth_blockNumber (13)[0m
+[32meth_blockNumber (14)[0m
+[32meth_blockNumber (15)[0m
+[32meth_blockNumber (16)[0m
+[32meth_blockNumber (17)[0m
+[32meth_blockNumber (18)[0m
+[32meth_blockNumber (19)[0m
+[32meth_blockNumber (20)[0m
+[32meth_blockNumber (21)[0m
+[32meth_blockNumber (22)[0m
+[32meth_blockNumber (23)[0m
+[32meth_blockNumber (24)[0m
+[32meth_blockNumber (25)[0m
+[32meth_blockNumber (26)[0m
+[32meth_blockNumber (27)[0m
+[32meth_blockNumber (28)[0m
+[32meth_blockNumber (29)[0m
+[32meth_blockNumber (30)[0m
+[32meth_blockNumber (31)[0m
+[32meth_blockNumber (32)[0m
+[32meth_blockNumber (33)[0m
+[32meth_chainId[0m
+[32meth_accounts[0m
+[32meth_call[0m
+  Contract call:       GameToken#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+[32meth_chainId[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       GameToken#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_blockNumber (11)[0m
+[32meth_blockNumber (12)[0m
+[32meth_blockNumber (13)[0m
+[32meth_blockNumber (14)[0m
+[32meth_blockNumber (15)[0m
+[32meth_blockNumber (16)[0m
+[32meth_blockNumber (17)[0m
+[32mnet_version[0m
+[32meth_getBlockByNumber[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_blockNumber (11)[0m
+[32meth_blockNumber (12)[0m
+[32meth_blockNumber (13)[0m
+[32meth_blockNumber (14)[0m
+[32meth_blockNumber (15)[0m
+[32meth_blockNumber (16)[0m
+[32meth_blockNumber (17)[0m
+[32meth_blockNumber (18)[0m
+[32meth_blockNumber (19)[0m
+[32meth_getBalance[0m
+[32meth_getBalance (2)[0m
+[32meth_getBalance (3)[0m
+[32meth_getBalance (4)[0m
+[32meth_getBalance (5)[0m
+[32meth_getBalance (6)[0m
+[32meth_getBalance (7)[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_chainId[0m
+[32meth_call[0m
+  Contract call:       GameToken#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+[32meth_chainId[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       GameToken#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_chainId[0m
+[32meth_call[0m
+  Contract call:       GameToken#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+[32meth_chainId[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       GameToken#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_blockNumber (11)[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_getBalance[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_blockNumber[0m
+[32meth_getBlockByNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract deployment: MockUSDT
+  Contract address:    0x2279b7a0a67db372996a5fab50d91eaa73d2ebe6
+  Transaction:         0x8b909bd760b8e36b225e07a293e91379b03d92768a1845deff7a9e0f2a17fe0e
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            1002887 of 30000000
+  Block #9:            0x4e1cc81d857ab6203f51beb8ce8768895c34228d877be266a68c6a50c48e16e8
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract deployment: GameToken
+  Contract address:    0x8a791620dd6260079bf849dc5567adc3f2fdc318
+  Transaction:         0xa79f03d57d847df3f667db34acf3d91b38511832683be7f6dd85b18f072c6aa9
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            1226848 of 30000000
+  Block #10:           0x012b1a68629f9ed4a45655426139cee03e64edbac24c628cddf3b410188dd0d6
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract deployment: TokenStore
+  Contract address:    0x610178da211fef7d417bc0e6fed39f05609ad788
+  Transaction:         0x6f09bd080257a469b25c5e656a2e56f6a181f845a6108ede83e9649d361c9d42
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            809118 of 30000000
+  Block #11:           0xce9d47f417c92d7c1ba1110ed68066a261fd0d482242983c37b682b0d6a8d567
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_accounts[0m
+[32mhardhat_metadata[0m
+[32mhardhat_metadata (2)[0m
+[32mhardhat_metadata (3)[0m
+[32mhardhat_metadata (4)[0m
+[32mhardhat_metadata (5)[0m
+[32mhardhat_metadata (6)[0m
+[32mhardhat_metadata (7)[0m
+[32mhardhat_metadata (8)[0m
+[32mhardhat_metadata (9)[0m
+[32mhardhat_metadata (10)[0m
+[32mhardhat_metadata (11)[0m
+[32mhardhat_metadata (12)[0m
+[32mhardhat_metadata (13)[0m
+[32mhardhat_metadata (14)[0m
+[32mhardhat_metadata (15)[0m
+[32mhardhat_metadata (16)[0m
+[32mhardhat_metadata (17)[0m
+[32mhardhat_metadata (18)[0m
+[32mhardhat_metadata (19)[0m
+[32mhardhat_metadata (20)[0m
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract deployment: PlayGame
+  Contract address:    0xb7f8bc63bbcad18155201308c8f3540b07f84f5e
+  Transaction:         0x86992f8e3be2a5145680ca8a019e933b157970bcb0127f61730f89559e07648b
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            1633036 of 30000000
+  Block #12:           0xd6793e6c767f0736c095148ef7d5cc27271c80c9e869468b012884fc7b7023e3
+
+[32meth_getTransactionByHash[0m
+[32meth_getTransactionReceipt[0m
+[32meth_blockNumber[0m
+[32meth_feeHistory[0m
+[32meth_sendTransaction[0m
+  Contract call:       GameToken#setTokenStore
+  Transaction:         0xcc26cff6522bc41badc76467f92061c406cda541977c604f501ffad743d677f9
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x8a791620dd6260079bf849dc5567adc3f2fdc318
+  Value:               0 ETH
+  Gas used:            46363 of 30000000
+  Block #13:           0x6cc8fc16f47c696ff33eef2c2eb2d71e87078015c54e7f77a3cfa6f054c8f202
+
+[32meth_getTransactionByHash[0m
+[32meth_chainId[0m
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_chainId[0m
+[32meth_newFilter[0m
+[32meth_newFilter (2)[0m
+[32meth_newFilter (3)[0m
+[32meth_newFilter (4)[0m
+[32meth_newFilter (5)[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_blockNumber (11)[0m
+[32meth_blockNumber (12)[0m
+[32meth_blockNumber (13)[0m
+[32meth_blockNumber (14)[0m
+[32meth_blockNumber (15)[0m
+[32meth_blockNumber (16)[0m
+[32meth_blockNumber (17)[0m
+[32meth_blockNumber (18)[0m
+[32meth_chainId[0m
+[32meth_call[0m
+  Contract call:       GameToken#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+[32meth_chainId[0m
+[32meth_call[0m
+  Contract call:       GameToken#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_blockNumber[0m
+[32meth_getTransactionCount[0m
+[32meth_chainId[0m
+[32meth_estimateGas[0m
+[32meth_chainId[0m
+[32meth_chainId (2)[0m
+[32meth_gasPrice[0m
+[32meth_getBlockByNumber[0m
+[32meth_maxPriorityFeePerGas[0m
+[32meth_blockNumber[0m
+[32meth_sendRawTransaction[0m
+  Contract call:       MockUSDT#mint
+  Transaction:         0x862322f6c789375c5adf5484c3763451de94bc8912faef733c9a0b76eefed982
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            51811 of 51811
+  Block #14:           0x32feb29107f5ba8eebd5ec2f8d90daebe974da74c3d89abb4e048836ec7e6759
+
+[32meth_chainId[0m
+[32meth_chainId (2)[0m
+[32meth_getTransactionReceipt[0m
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_chainId[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       GameToken#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_chainId[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#allowance
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_estimateGas[0m
+[32meth_getCode[0m
+[32meth_getCode (2)[0m
+[32meth_gasPrice[0m
+[32meth_getBalance[0m
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[32meth_call[0m
+  Contract call:       MockUSDT#symbol
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       MockUSDT#decimals
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_blockNumber[0m
+[32meth_getBalance[0m
+[32meth_getBalance (2)[0m
+[32meth_getBalance (3)[0m
+[32meth_getBalance (4)[0m
+[32meth_getBalance (5)[0m
+[32meth_getBalance (6)[0m
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[32meth_call[0m
+  Contract call:       MockUSDT#balanceOf
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       TokenStore#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       TokenStore#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       TokenStore#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       TokenStore#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       TokenStore#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       TokenStore#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       TokenStore#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       TokenStore#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_getTransactionCount[0m
+[32meth_sendRawTransaction[0m
+  Contract call:       MockUSDT#approve
+  Transaction:         0x5f127011495da1def3921a3737264451eb5daef597434f93190e853e0133dd32
+  From:                0xdd2fd4581271e230360230f9337d5c0430bf44c0
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Value:               0 ETH
+  Gas used:            46916 of 46916
+  Block #15:           0xa368c10fcd9e242981ab249feb30419489d5a1bf883f9e277b9be77528a64853
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[32meth_getTransactionReceipt[0m
+[32meth_blockNumber[0m
+[32meth_getBlockByNumber[0m
+[32meth_getBalance[0m
+[32meth_getBalance (2)[0m
+[32meth_getBalance (3)[0m
+[32meth_getBalance (4)[0m
+[32meth_getBalance (5)[0m
+[32meth_getBalance (6)[0m
+[32meth_getBalance (7)[0m
+[32meth_call[0m
+  Contract call:       MockUSDT#allowance
+  From:                0xdd2fd4581271e230360230f9337d5c0430bf44c0
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_getTransactionCount[0m
+[32meth_chainId[0m
+[31meth_estimateGas[0m
+  Contract call:       TokenStore#buy
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+  Value:               0 ETH
+
+  Error: VM Exception while processing transaction: reverted with an unrecognized custom error (return data: 0xfb8f41b20000000000000000000000009fe46736679d2d9a65f0992f2272de9f3c7fa6e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005f5e100)
+
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_getTransactionReceipt[0m
+[32meth_getBlockByHash[0m
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[31meth_call[0m
+  Contract call:       MockUSDT#<unrecognized-selector>
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+  Error: Transaction reverted without a reason
+
+[32meth_call[0m
+  Contract call:       MockUSDT#symbol
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_call[0m
+  Contract call:       MockUSDT#decimals
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0x5fbdb2315678afecb367f032d93f642f64180aa3
+
+[32meth_gasPrice[0m
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_chainId[0m
+[32meth_getFilterChanges[0m
+[32meth_getFilterChanges (2)[0m
+[32meth_getFilterChanges (3)[0m
+[32meth_getFilterChanges (4)[0m
+[32meth_getFilterChanges (5)[0m
+[32meth_blockNumber[0m
+[32meth_blockNumber (2)[0m
+[32meth_blockNumber (3)[0m
+[32meth_blockNumber (4)[0m
+[32meth_blockNumber (5)[0m
+[32meth_blockNumber (6)[0m
+[32meth_blockNumber (7)[0m
+[32meth_blockNumber (8)[0m
+[32meth_blockNumber (9)[0m
+[32meth_blockNumber (10)[0m
+[32meth_blockNumber (11)[0m
+[32meth_blockNumber (12)[0m
+[32meth_blockNumber (13)[0m
+[32meth_blockNumber (14)[0m
+[32meth_blockNumber (15)[0m
+[32meth_blockNumber (16)[0m
+[32meth_blockNumber (17)[0m
+[32meth_blockNumber (18)[0m
+[32meth_blockNumber (19)[0m
+[32meth_blockNumber (20)[0m
+[32meth_blockNumber (21)[0m
+[32meth_blockNumber (22)[0m
+[32meth_blockNumber (23)[0m
+[32meth_blockNumber (24)[0m
+[32meth_blockNumber (25)[0m
+[32meth_blockNumber (26)[0m
+[32meth_blockNumber (27)[0m
+[32meth_blockNumber (28)[0m
+[32meth_blockNumber (29)[0m
+[32meth_blockNumber (30)[0m

@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "name": "trix-gaming-platform",
+  "builds": [
+    {
+      "src": "api/game-server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "tools/leaderboard.js", 
+      "use": "@vercel/node"
+    },
+    {
+      "src": "web/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/game-server.js"
+    },
+    {
+      "src": "/leaderboard/(.*)",
+      "dest": "/tools/leaderboard.js"
+    },
+    {
+      "src": "/socket.io/(.*)",
+      "dest": "/api/game-server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/web/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "api/game-server.js": {
+      "maxDuration": 30
+    },
+    "tools/leaderboard.js": {
+      "maxDuration": 30
+    }
+  }
+}

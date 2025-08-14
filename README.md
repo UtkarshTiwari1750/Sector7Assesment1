@@ -1,6 +1,13 @@
-# 🎮 TriX Game Platform
+# 🎮 TriX Gaming Platform - Round 2 Complete
 
-A complete blockchain gaming platform featuring smart contracts for token trading and competitive gameplay, with a backend API, frontend interface, and real-time leaderboard system.
+A **fully integrated blockchain gaming platform** featuring real-time **Tic-Tac-Toe gameplay**, smart matchmaking, automatic GT token staking, and instant winner payouts.
+
+## 🚀 NEW: Complete Game Integration
+- ✅ **Real-time Tic-Tac-Toe** with Socket.IO
+- ✅ **Smart Matchmaking** - auto-pairs players with same stakes  
+- ✅ **Blockchain Escrow** - stakes locked in smart contracts
+- ✅ **Instant Payouts** - winner gets 2× stake automatically
+- ✅ **Live Events** - real-time game updates and leaderboards
 
 ## 🏗️ Architecture
 
@@ -59,9 +66,10 @@ node scripts/start-all.js
 ```
 
 **Service URLs:**
-- 🌐 Frontend: http://localhost:8080
-- 📡 Backend API: http://localhost:3000
-- 📊 Leaderboard API: http://localhost:3001
+- 🎮 **Game Platform**: http://localhost:8080/game.html
+- 📊 **Admin Panel**: http://localhost:8080/index.html
+- 🎯 **Game Server**: http://localhost:3000 (API + Socket.IO)
+- 📈 **Leaderboard API**: http://localhost:3001
 
 ## 🎯 Core Features
 
@@ -75,6 +83,12 @@ node scripts/start-all.js
 - **Secure Payouts**: Winner receives 2× stake automatically
 - **Timeout Protection**: Refunds available after 24h if unresolved
 - **Result Verification**: Only authorized operators can submit results
+
+### 🎮 Real-time Gaming  
+- **Tic-Tac-Toe Gameplay**: Classic 3x3 grid game with modern UI
+- **Smart Matchmaking**: Auto-pairs players with matching stakes (1, 5, 10, 25 GT)
+- **Socket.IO Integration**: Real-time moves, chat, and game updates
+- **Multi-stake Support**: Different risk levels for different players
 
 ### 📊 Real-time Leaderboard
 - **Live Event Tracking**: Purchase, match creation, staking, and settlement events
@@ -282,26 +296,35 @@ LEADERBOARD_PORT=3001
 - Use environment-specific configurations
 - Add automated testing pipeline
 
-## 🏁 Happy Path Demo
+## 🎮 Complete Gaming Flow
 
+### Full End-to-End Experience
 1. **Start local blockchain**: `npm run node`
 2. **Deploy contracts**: `npm run deploy` (auto-generates ABIs & updates .env)
 3. **Start all services**: `npm start`
-4. **Open frontend**: http://localhost:8080
-5. **Connect MetaMask** to local network
-6. **Get test USDT** from the faucet button
-7. **Purchase GT tokens** using your USDT
-8. **Create a match** between two players
-9. **Both players stake** their GT tokens
-10. **Submit match result** with winner address
-11. **View updated leaderboard** with winner's stats
-12. **Check balances** reflect the 2x payout to winner
+4. **Open game platform**: http://localhost:8080/game.html
 
-### 🎮 Testing Features
-- **Faucet**: Get 1000 test USDT instantly
-- **Real-time Updates**: Balances and leaderboard auto-refresh
-- **Live Events**: See all transactions in the event log
-- **Multiple Players**: Test with different MetaMask accounts
+### Single Player Setup
+5. **Connect MetaMask** to local network  
+6. **Get test USDT** from the faucet (1000 USDT)
+7. **Buy GT tokens** with your USDT (e.g., 100 GT)
+
+### Real Gaming Experience (2 Players)
+8. **Player 1**: Choose stake (e.g., 5 GT) and click "Find Match"
+9. **Player 2** (different browser/account): Choose same stake (5 GT) and "Find Match"
+10. **Auto-matching**: System pairs players instantly
+11. **Auto-staking**: Both players' GT automatically staked in smart contract
+12. **Play Tic-Tac-Toe**: Real-time game with Socket.IO updates
+13. **Instant Payout**: Winner automatically receives 10 GT (2× stake)
+14. **Blockchain Proof**: Transaction hash shown with Etherscan link
+15. **Live Updates**: Leaderboard and balances refresh automatically
+
+### 🎯 Testing Features
+- **Multiple Stake Levels**: 1, 5, 10, or 25 GT per game
+- **Real-time Matchmaking**: Queue system with position tracking
+- **Live Game Updates**: See opponent moves instantly  
+- **Automatic Blockchain**: No manual transaction signing needed
+- **Complete Integration**: Wallet → Tokens → Match → Play → Win → Payout
 
 ## 🤝 Contributing
 

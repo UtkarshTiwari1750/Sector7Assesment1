@@ -5,12 +5,21 @@ const path = require('path');
 
 console.log('🚀 Starting TriX Game Platform Services...\n');
 
-// Start the backend API
-console.log('📡 Starting Backend API...');
-const api = spawn('node', ['api/index.js'], {
+// Start the game server (includes API + Socket.IO)
+console.log('🎮 Starting Game Server...');
+const api = spawn('node', ['api/game-server.js'], {
     cwd: path.join(__dirname, '..'),
     stdio: 'inherit',
     env: { ...process.env, NODE_ENV: 'development' }
+});
+
+
+// Start the backend API
+console.log('📡 Starting Backend API...');
+const serverapi = spawn("node", ["api/index.js"], {
+  cwd: path.join(__dirname, ".."),
+  stdio: "inherit",
+  env: { ...process.env, NODE_ENV: "development" },
 });
 
 // Start the leaderboard service
@@ -29,9 +38,10 @@ const frontend = spawn('npx', ['http-server', 'web', '-p', '8080', '--cors'], {
 });
 
 console.log('\n✅ All services started!');
-console.log('🔗 Frontend: http://localhost:8080');
-console.log('📡 Backend API: http://localhost:3000');
-console.log('📊 Leaderboard API: http://localhost:3001');
+console.log('🎮 Game Platform: http://localhost:8080/game.html');
+console.log('📊 Admin Panel: http://localhost:8080/index.html');  
+console.log('🎯 Game Server: http://localhost:3000');
+console.log('📈 Leaderboard API: http://localhost:3001');
 console.log('\nPress Ctrl+C to stop all services\n');
 
 // Handle shutdown

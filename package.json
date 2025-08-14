@@ -6,12 +6,15 @@
   "scripts": {
     "test": "jest",
     "start": "node scripts/start-all.js",
+    "game-server": "node api/game-server.js",
     "api": "node api/index.js",
     "leaderboard": "node tools/leaderboard.js",
     "frontend": "npx http-server web -p 8080 --cors",
     "compile": "npx hardhat compile",
     "deploy": "npx hardhat run scripts/deploy.js --network localhost",
-    "node": "npx hardhat node"
+    "node": "npx hardhat node",
+    "dev": "concurrently \"npm run node\" \"npm run deploy\" \"npm run start\"",
+    "build": "npm run compile"
   },
   "workspaces": [
     "contracts",
@@ -21,6 +24,7 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^6.1.0",
     "@typechain/hardhat": "^9.1.0",
+    "concurrently": "^8.2.2",
     "ethers": "^6.0.0",
     "hardhat": "^2.26.3",
     "hardhat-gas-reporter": "^2.3.0",
@@ -38,6 +42,8 @@
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "http-server": "^14.1.1",
-    "jest": "^30.0.5"
+    "jest": "^30.0.5",
+    "socket.io": "^4.7.5",
+    "uuid": "^9.0.1"
   }
 }

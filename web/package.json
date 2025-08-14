@@ -1,0 +1,14 @@
+{
+  "name": "trix-web",
+  "version": "1.0.0",
+  "description": "TriX Gaming Platform Frontend",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static files ready'",
+    "start": "npx http-server . -p 8080 --cors"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
